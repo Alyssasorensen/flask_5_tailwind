@@ -3,39 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake Data Table</title>
-    <!-- Include Tailwind CSS from CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Online Healthcare Informatics Program</title>
+    <link href="https://cdn.tailwindcss.com/2.2.19/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-200 p-4">
-    <div video controls class="w-full">
-        <video controls class="w-full max-w-screen-md mx-auto mb-4 shadow-md">
-            <source src="https://alyssa-cdn17.azureedge.net/alyssa-flask-app17/What%20is%20a%20Healthcare%20Informatics%20Degree_%20%20_%20UCF%20Online.mp4" type="video/mp4">
-        </video>
-        <h1 class="text-2xl font-bold mb-4 text-center">Patient Data</h1>
+    <div class="max-w-screen-md mx-auto bg-white p-4 shadow-md">
+        <h1 class="text-2xl font-bold mb-4 text-center">Online Healthcare Informatics Program</h1>
 
-        <img src="https://alyssa-cdn17.azureedge.net/alyssa-flask-app17/What%20is%20a%20Healthcare%20Informatics%20Degree_%20%20_%20UCF%20Online.mp4" alt="Video" class="mx-auto mb-4 items-center">
-        
-        
-        <table class="table-auto w-full bg-gray-100">
+        <video controls class="w-full mb-4">
+            <source src="https://alyssa-cdn17.azureedge.net/alyssa-flask-app17/What%20is%20a%20Healthcare%20Informatics%20Degree_%20%20_%20UCF%20Online.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <table class="w-full bg-gray-100">
             <thead>
                 <tr>
-                    <th class="px-4 py-2">First Name</th>
-                    <th class="px-4 py-2">Last Name</th>
-                    <th class="px-4 py-2">Date of Birth</th>
-                    <th class="px-4 py-2">Gender</th>
-                    <th class="px-4 py-2">Contact Number</th>
+                    <th class="px-4 py-2">Section</th>
+                    <th class="px-4 py-2">Description</th>
                 </tr>
             </thead>
             <tbody>
-                {% for patient in patients %}
-                    <tr>
-                        <td class="border px-4 py-2">{{ patient.first_name }}</td>
-                        <td class="border px-4 py-2">{{ patient.last_name }}</td>
-                        <td class="border px-4 py-2">{{ patient.date_of_birth }}</td>
-                        <td class="border px-4 py-2">{{ patient.gender }}</td>
-                        <td class="border px-4 py-2">{{ patient.contact_number }}</td>
-                    </tr>
+                {% for item in items %}
+                <tr class="cursor-pointer hover:bg-gray-300" onclick="window.location='/section/{{ item.id }}'">
+                    <td class="border px-4 py-2">{{ item.section_name }}</td>
+                    <td class="border px-4 py-2">{{ item.description }}</td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
